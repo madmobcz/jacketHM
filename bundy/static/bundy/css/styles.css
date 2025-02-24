@@ -48,11 +48,30 @@ header {
     border-radius: 5px;
 }
 
-/* Obsah stránky – odsazení kvůli fixovanému menu */
+/* Obsah stránky – odsazení kvůli fixovanému headeru a footeru */
 .content {
     padding: 20px;
     text-align: center;
-    padding-top: 100px; /* upravte tuto hodnotu dle výšky vašeho menu */
+    padding-top: 100px; /* upravte dle výšky menu */
+    padding-bottom: 60px; /* prostor pro footer */
+}
+
+/* Patička (footer) */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
 }
 
 /* Tlačítka */
