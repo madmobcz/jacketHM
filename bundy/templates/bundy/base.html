@@ -7,18 +7,23 @@
   <title>{% block title %}JacketHM{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'bundy/css/styles.css' %}">
   <script src="{% static 'bundy/js/scripts.js' %}" defer></script>
+  <!-- Inline CSS pro nastavení background image s využitím Django static tag -->
+  <style>
+    body {
+      background: url("{% static 'bundy/bg.png' %}") no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
 </head>
 <body>
   <header>
     {% include 'bundy/menu.html' %}
   </header>
-
   <div class="content">
     {% block content %}{% endblock %}
   </div>
-
   <footer>
-    <p>2025©v.2 Kamisamacz | <a href="https://www.instagram.com/kamisamacz" target="_blank">Instagram</a></p>
+    <p>2025v3.1©Kamisamacz | <a class="instagram" href="https://www.instagram.com/kamsiamacz" target="_blank">Instagram</a></p>
   </footer>
 </body>
 </html>
