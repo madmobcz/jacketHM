@@ -1,0 +1,17 @@
+{% extends 'bundy/base.html' %}
+
+{% block title %}Přidat novou bundu{% endblock %}
+
+{% block content %}
+  <h1>Přidat novou bundu</h1>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <br>
+     <center> <img id="jacket-preview" src="" alt="Náhled bundy" style="display: none; width: 200px; padding: 0px;">
+      </center><br><br>
+      <button type="submit">Uložit</button>
+  </form>
+  <hr>
+
+{% endblock %}
