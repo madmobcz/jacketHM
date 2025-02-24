@@ -7,13 +7,22 @@ body {
     padding: 0;
 }
 
-/* Navigační menu */
+/* Header a menu */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #222;
+}
+
 .navbar {
-    background: #222;
     padding: 15px;
     text-align: center;
 }
 
+/* Navigační menu - seznam a položky */
 .navbar ul {
     list-style: none;
     padding: 0;
@@ -39,10 +48,11 @@ body {
     border-radius: 5px;
 }
 
-/* Obsah stránky */
+/* Obsah stránky – odsazení kvůli fixovanému menu */
 .content {
     padding: 20px;
     text-align: center;
+    padding-top: 100px; /* upravte tuto hodnotu dle výšky vašeho menu */
 }
 
 /* Tlačítka */
@@ -59,6 +69,7 @@ button {
 button:hover {
     background-color: #888;
 }
+
 .center {
   display: block;
   margin-left: auto;

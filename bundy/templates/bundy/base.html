@@ -2,19 +2,18 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}JacketHM{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'bundy/css/styles.css' %}">
-    <script src="{% static 'bundy/js/scripts.js' %}" defer></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}JacketHM{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'bundy/css/styles.css' %}">
+  <script src="{% static 'bundy/js/scripts.js' %}" defer></script>
 </head>
 <body>
-
+  <header>
     {% include 'bundy/menu.html' %}
-
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+  </header>
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
 </body>
 </html>
