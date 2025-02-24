@@ -1,0 +1,27 @@
+{% extends 'bundy/base.html' %}
+
+{% block title %}Detail bundy{% endblock %}
+
+{% block content %}
+<center>
+  <h1>Detail bundy</h1>
+  <div style="width: 80%; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; font-family: Arial, sans-serif;">
+    <p><strong>ID:</strong> {{ jacket.id }}</p>
+    <p><strong>Typ bundy:</strong> {{ jacket.typ }}</p>
+    <p><strong>Barva:</strong> {{ jacket.color }}</p>
+
+    <div style="margin: 20px 0; display: flex; justify-content: center;">
+      <!-- Kontejner s 10px paddingem a nastavenou barvou bundy -->
+      <div style="display: inline-block; padding: 10px; background-color: {{ jacket.color }}; border-radius: 10px;">
+        <img src="{{ jacket.get_image_url }}" alt="{{ jacket.typ }}" style="max-width: 250px; max-height: 250px;">
+      </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <a href="{% url 'jacket-update' jacket.id %}" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin: 5px;">Upravit</a>
+      <a href="{% url 'jacket-delete' jacket.id %}" style="display: inline-block; background-color: #f44336; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin: 5px;">Vymazat</a>
+      <a href="{% url 'sklad' %}" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin: 5px;">Zpět na sklad</a>
+    </div>
+  </div>
+</center>
+{% endblock %}
