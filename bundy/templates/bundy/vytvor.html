@@ -1,0 +1,29 @@
+{% extends 'bundy/base.html' %}
+
+{% block title %}Přidat novou bundu{% endblock %}
+
+{% block content %}
+<center>
+  <h1>Přidat novou bundu</h1>
+  <div style="width: 80%; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; font-family: Arial, sans-serif;">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <div style="margin: 20px 0; display: flex; justify-content: center;">
+        <!-- Kontejner s 10px paddingem a neutrálním pozadím, který se změní pomocí JS -->
+        <div style="display: inline-block; padding: 10px; background-color: #f0f0f0; border-radius: 10px;">
+          <!-- DŮLEŽITÉ: Odstraněn `src` nebo ponechán prázdný -->
+          <img id="jacket-preview" alt="Náhled bundy"
+               style="display: none; max-width: 200px; max-height: 200px;">
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button type="submit" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 15px; border: none; border-radius: 5px; text-decoration: none;">Uložit</button>
+      </div>
+    </form>
+    <hr style="margin-top: 20px;">
+  </div>
+</center>
+{% endblock %}

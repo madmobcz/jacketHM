@@ -1,0 +1,14 @@
+{% extends 'bundy/base.html' %}
+
+{% block title %}Vymazat bundu{% endblock %}
+
+{% block content %}
+  <h1>Vymazat bundu</h1>
+  <p>Opravdu chcete vymazat bundu "{{ object }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Ano, vymazat</button>
+  </form>
+  <br>
+  <a href="{% url 'jacket-detail' object.id %}">Zrušit</a>
+{% endblock %}

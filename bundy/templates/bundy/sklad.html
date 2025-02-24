@@ -1,0 +1,45 @@
+{% extends 'bundy/base.html' %}
+
+{% block title %}Sklad bund{% endblock %}
+
+{% block content %}
+<center>
+  <h1>Sklad bund</h1>
+  <hr>
+  <table style="width: 50%; border-collapse: collapse; margin: 20px auto; font-family: Arial, sans-serif;">
+    <thead>
+      <tr style="background-color: #333; color: #fff; text-align: center;">
+        <th style="padding: 5px;">ID</th>
+        <th style="padding: 5px;">Typ bundy</th>
+        <th style="padding: 5px;">Barva</th>
+        <th style="padding: 5px;">Ikona</th>
+        <th style="padding: 5px;">Akce</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for jacket in jackets %}
+      <tr style="text-align: center; border-bottom: 1px solid #ccc;">
+        <td style="padding: 12px;">{{ jacket.id }}</td>
+        <td style="padding: 12px;">{{ jacket.typ }}</td>
+        <td style="padding: 12px;">{{ jacket.color }}</td>
+        <td style="padding: 12px;">
+          <a href="{% url 'jacket-detail' jacket.id %}">
+            <div style="width: 90px; height: 90px; background-color: {{ jacket.color }}; display: flex; align-items: center; justify-content: center; margin: auto;">
+              <img src="{{ jacket.get_image_url }}" alt="{{ jacket.typ }}" style="max-width: 80px; max-height: 80px;">
+            </div>
+          </a>
+        </td>
+        <td style="padding: 5px;">
+          <a href="{% url 'jacket-update' jacket.id %}" style="display: inline-block; background-color: #4CAF50; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px; margin: 2px;">Upravit</a>
+          <a href="{% url 'jacket-delete' jacket.id %}" style="display: inline-block; background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px; margin: 2px;">Vymazat</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" style="padding: 20px; text-align: center;">Žádné bundy nejsou dostupné.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</center>
+{% endblock %}
